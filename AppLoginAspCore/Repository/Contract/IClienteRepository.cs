@@ -1,14 +1,15 @@
-﻿using AppLoginCore.Models;
+﻿using AppLoginAspCore.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 //using X.PagedList;
 
-namespace AppLoginCore.Repositories.Contracts
+namespace AppLoginAspCore.Repositories.Contract
 {
     public interface IClienteRepository
     {
+        // Logim Cliente
         Cliente Login(string Email, string Senha);
         
         //CRUD
