@@ -1,7 +1,14 @@
+using AppLoginAspCore.Repositories.Contract;
+using AppLoginAspCore.Repository;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+//Adicionar a Interface como um serviço 
+builder.Services.AddScoped<IClienteRepository, ClienteRepository>();
+
 
 var app = builder.Build();
 
