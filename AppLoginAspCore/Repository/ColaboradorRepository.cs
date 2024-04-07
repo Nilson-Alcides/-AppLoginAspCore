@@ -1,5 +1,7 @@
 ﻿using AppLoginAspCore.Models;
 using AppLoginAspCore.Repositories.Contracts;
+using MySql.Data.MySqlClient;
+using System.Data;
 
 namespace AppLoginAspCore.Repository
 {
@@ -16,7 +18,31 @@ namespace AppLoginAspCore.Repository
         }
         public Colaborador Login(string Email, string Senha)
         {
-            throw new NotImplementedException();
+            using (var conexao = new MySqlConnection(_conexaoMySQL))
+            {
+                conexao.Open();
+
+                MySqlCommand cmd = new MySqlCommand("select * from Colaborador where Email = @Email and Senha = @Senha", conexao);
+
+                cmd.Parameters.Add("@Email", MySqlDbType.VarChar).Value = Email;
+                cmd.Parameters.Add("@Senha", MySqlDbType.VarChar).Value = Senha;
+
+                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                MySqlDataReader dr;
+
+                Colaborador colaborador = new Colaborador();
+                dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+
+                while (dr.Read())
+                {
+                    colaborador.Id = (Int32)(dr["Id"]);
+                    colaborador.Nome = (string)(dr["Nome"]);
+                    colaborador.Email = (string)(dr["Email"]);
+                    colaborador.Senha = (string)(dr["Senha"]);
+                    colaborador.Tipo = (string)(dr["Tipo"]);
+                }
+                return colaborador;
+            }
         }
         public void Atualizar(Colaborador colaborador)
         {
