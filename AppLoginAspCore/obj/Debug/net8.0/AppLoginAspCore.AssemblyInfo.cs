@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AppLoginAspCore")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d41a16719fef3bdcbeb375c00bc1b1129bf6b9e6")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a85e42167e35c28e2f8cbfa89879e92e8be0933d")]
 [assembly: System.Reflection.AssemblyProductAttribute("AppLoginAspCore")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AppLoginAspCore")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
