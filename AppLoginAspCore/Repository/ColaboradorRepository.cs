@@ -1,6 +1,9 @@
 ﻿using AppLoginAspCore.Models;
+using AppLoginAspCore.Models.Constants;
+using AppLoginAspCore.Models.Contants;
 using AppLoginAspCore.Repositories.Contracts;
 using MySql.Data.MySqlClient;
+using MySqlX.XDevAPI;
 using System.Data;
 
 namespace AppLoginAspCore.Repository
@@ -44,10 +47,7 @@ namespace AppLoginAspCore.Repository
                 return colaborador;
             }
         }
-        public void Atualizar(Colaborador colaborador)
-        {
-            throw new NotImplementedException();
-        }
+        
 
         public void AtualizarSenha(Colaborador colaborador)
         {
@@ -173,6 +173,26 @@ namespace AppLoginAspCore.Repository
                 MySqlCommand cmd = new MySqlCommand("delete from Colaborador WHERE Id=@Id ", conexao);
                 cmd.Parameters.AddWithValue("@Id", Id);
                 int i = cmd.ExecuteNonQuery();
+                conexao.Close();
+            }
+        }
+        public void Atualizar(Colaborador colaborador)
+        {
+            string Tipo = ColaboradorTipoConstant.Comum;
+            using (var conexao = new MySqlConnection(_conexaoMySQL))
+            {
+                conexao.Open();
+                MySqlCommand cmd = new MySqlCommand("update Colaborador set Nome=@Nome, CPF=@CPF, Telefone=@Telefone, " +
+                    " Email=@Email, Senha=@Senha, Tipo=@Tipo " , conexao);
+
+                cmd.Parameters.Add("@Id", MySqlDbType.VarChar).Value = colaborador.Id;
+                cmd.Parameters.Add("@Nome", MySqlDbType.VarChar).Value = colaborador.Nome;
+                cmd.Parameters.Add("@CPF", MySqlDbType.VarChar).Value = colaborador.CPF;
+                cmd.Parameters.Add("@Telefone", MySqlDbType.VarChar).Value = colaborador.Telefone;
+                cmd.Parameters.Add("@Email", MySqlDbType.VarChar).Value = colaborador.Email;
+                cmd.Parameters.Add("@Senha", MySqlDbType.VarChar).Value = colaborador.Senha;
+                cmd.Parameters.Add("@Tipo", MySqlDbType.VarChar).Value = Tipo;
+                cmd.ExecuteNonQuery();
                 conexao.Close();
             }
         }
