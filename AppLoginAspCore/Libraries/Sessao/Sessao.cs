@@ -22,5 +22,15 @@
         {
             return _context.HttpContext.Session.GetString(Key);
         }
+        //Verificar se existe a sessão criada
+        public bool Existe(string Key)
+        {
+            if (_context.HttpContext.Session.GetString(Key) == null)
+            {
+                return false;
+            }
+
+            return true;
+        }
     }
 }
