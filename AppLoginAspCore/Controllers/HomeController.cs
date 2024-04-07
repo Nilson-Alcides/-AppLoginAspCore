@@ -1,4 +1,6 @@
+using AppLoginAspCore.Libraries.Login;
 using AppLoginAspCore.Models;
+using AppLoginAspCore.Repositories.Contract;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -6,13 +8,15 @@ namespace AppLoginAspCore.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        // Injeção de dependencia
+        private IClienteRepository _clienteRepository;
+        private LoginCliente _loginCliente;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(IClienteRepository clienteRepository, LoginCliente loginCliente)
         {
-            _logger = logger;
-        }
-
+            _clienteRepository = clienteRepository;
+            _loginCliente = loginCliente;
+        }     
         public IActionResult Index()
         {
             return View();
@@ -21,12 +25,6 @@ namespace AppLoginAspCore.Controllers
         public IActionResult Privacy()
         {
             return View();
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
 }
