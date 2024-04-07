@@ -32,5 +32,15 @@
 
             return true;
         }
+        //Remover sessão
+        public void Remover(string Key)
+        {
+            _context.HttpContext.Session.Remove(Key);
+        }
+        //Remover todas sessões
+        public void RemoverTodos()
+        {
+            _context.HttpContext.Session.Clear();
+        }
     }
 }
