@@ -1,4 +1,5 @@
 using AppLoginAspCore.Repositories.Contract;
+using AppLoginAspCore.Repositories.Contracts;
 using AppLoginAspCore.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -8,6 +9,7 @@ builder.Services.AddControllersWithViews();
 
 //Adicionar a Interface como um serviço 
 builder.Services.AddScoped<IClienteRepository, ClienteRepository>();
+builder.Services.AddScoped<IColaboradorRepository, ColaboradorRepository>();
 
 
 var app = builder.Build();

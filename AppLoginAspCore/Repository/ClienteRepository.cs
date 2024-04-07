@@ -88,7 +88,6 @@ namespace AppLoginAspCore.Repository
                 return cliList;
             }
         }
-       
         public void Cadastrar(Cliente cliente)
         {
             string Situacao = SituacaoConstant.Ativo;
@@ -147,7 +146,6 @@ namespace AppLoginAspCore.Repository
                 conexao.Close();
             }
         }
-
         public Cliente ObterCliente(int Id)
         {
             using (var conexao = new MySqlConnection(_conexaoMySQL))

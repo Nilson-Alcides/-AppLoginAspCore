@@ -47,13 +47,10 @@ namespace AppLoginAspCore.Repository
                 return colaborador;
             }
         }
-        
-
         public void AtualizarSenha(Colaborador colaborador)
         {
             throw new NotImplementedException();
         }
-
         public void Cadastrar(Colaborador colaborador)
         {
             using (var conexao = new MySqlConnection(_conexaoMySQL))
@@ -73,7 +70,6 @@ namespace AppLoginAspCore.Repository
                 conexao.Close();
             }
         }
-
         public IEnumerable<Colaborador> ObterTodosColaboradores()
         {
             List<Colaborador> colabList = new List<Colaborador>();
@@ -183,7 +179,7 @@ namespace AppLoginAspCore.Repository
             {
                 conexao.Open();
                 MySqlCommand cmd = new MySqlCommand("update Colaborador set Nome=@Nome, CPF=@CPF, Telefone=@Telefone, " +
-                    " Email=@Email, Senha=@Senha, Tipo=@Tipo " , conexao);
+                    " Email=@Email, Senha=@Senha, Tipo=@Tipo ", conexao);
 
                 cmd.Parameters.Add("@Id", MySqlDbType.VarChar).Value = colaborador.Id;
                 cmd.Parameters.Add("@Nome", MySqlDbType.VarChar).Value = colaborador.Nome;
