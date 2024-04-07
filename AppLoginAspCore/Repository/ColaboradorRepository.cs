@@ -74,23 +74,6 @@ namespace AppLoginAspCore.Repository
             }
         }
 
-        public void Excluir(int Id)
-        {
-            throw new NotImplementedException();
-        }
-
-       
-
-        public Colaborador ObterColaborador(int Id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<Colaborador> ObterColaboradorPorEmail(string email)
-        {
-            throw new NotImplementedException();
-        }
-
         public IEnumerable<Colaborador> ObterTodosColaboradores()
         {
             List<Colaborador> colabList = new List<Colaborador>();
@@ -122,6 +105,40 @@ namespace AppLoginAspCore.Repository
                 }
                 return colabList;
             }
+        }
+        public Colaborador ObterColaborador(int Id)
+        {
+            using (var conexao = new MySqlConnection(_conexaoMySQL))
+            {
+                conexao.Open();
+                MySqlCommand cmd = new MySqlCommand("select * from Colaborador WHERE Id=@Id ", conexao);
+                cmd.Parameters.AddWithValue("@Id", Id);
+
+                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                MySqlDataReader dr;
+
+                Colaborador colaborador = new Colaborador();
+                dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+                while (dr.Read())
+                {
+                    colaborador.Id = (Int32)(dr["Id"]);
+                    colaborador.Nome = (string)(dr["Nome"]);
+                    colaborador.CPF = (string)(dr["CPF"]);
+                    colaborador.Telefone = (string)(dr["Telefone"]);
+                    colaborador.Senha = (string)(dr["Senha"]);
+                    colaborador.Email = (string)(dr["Email"]);
+                    colaborador.Tipo = (string)(dr["Senha"]);
+                }
+                return colaborador;
+            }
+        }
+        public List<Colaborador> ObterColaboradorPorEmail(string email)
+        {
+            throw new NotImplementedException();
+        }
+        public void Excluir(int Id)
+        {
+            throw new NotImplementedException();
         }
     }
 }
