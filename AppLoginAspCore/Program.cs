@@ -1,3 +1,4 @@
+using AppLoginAspCore.Libraries.Login;
 using AppLoginAspCore.Repositories.Contract;
 using AppLoginAspCore.Repositories.Contracts;
 using AppLoginAspCore.Repository;
@@ -14,6 +15,10 @@ builder.Services.AddHttpContextAccessor();
 builder.Services.AddScoped<IClienteRepository, ClienteRepository>();
 builder.Services.AddScoped<IColaboradorRepository, ColaboradorRepository>();
 
+builder.Services.AddScoped<AppLoginAspCore.Libraries.Sessao.Sessao>();
+builder.Services.AddScoped<LoginCliente>();
+builder.Services.AddScoped<LoginColaborador>();
+
 // Corrigir problema com TEMPDATA
 builder.Services.AddDistributedMemoryCache();
 builder.Services.AddSession(options =>
@@ -26,7 +31,7 @@ builder.Services.AddSession(options =>
 });
 builder.Services.AddMvc().AddSessionStateTempDataProvider();
 
-builder.Services.AddScoped<AppLoginAspCore.Libraries.Sessao.Sessao>();
+
 
 var app = builder.Build();
 

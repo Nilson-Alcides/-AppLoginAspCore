@@ -1,4 +1,5 @@
 ﻿using AppLoginAspCore.Models;
+using AppLoginAspCore.Libraries.Sessao;
 using Newtonsoft.Json;
 
 namespace AppLoginAspCore.Libraries.Login
