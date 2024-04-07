@@ -40,7 +40,10 @@ namespace AppLoginAspCore.Controllers
         }
         public IActionResult PainelCliente()
         {
-
+            ViewBag.Nome = _loginCliente.GetCliente().Nome;
+            ViewBag.CPF = _loginCliente.GetCliente().CPF;
+            ViewBag.Email = _loginCliente.GetCliente().Email;
+            //return new ContentResult() { Content = "Este é o Painel do Cliente!" };
             return View();
         }
         public IActionResult Index()
