@@ -21,5 +21,19 @@ namespace AppLoginAspCore.Libraries.Login
 
             _sessao.Cadastrar(Key, colaboradorJSONString);
         }
+        //Reverter Json para objeto Colaborador ** Deserializar **
+        public Colaborador GetColaborador()
+        {
+            //Deserializar
+            if (_sessao.Existe(Key))
+            {
+                string colaboradorJSONString = _sessao.Consultar(Key);
+                return JsonConvert.DeserializeObject<Colaborador>(colaboradorJSONString); ;
+            }
+            else
+            {
+                return null;
+            }
+        }
     }
 }
