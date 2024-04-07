@@ -1,4 +1,7 @@
-﻿namespace AppLoginAspCore.Libraries.Login
+﻿using AppLoginAspCore.Models;
+using Newtonsoft.Json;
+
+namespace AppLoginAspCore.Libraries.Login
 {
     public class LoginColaborador
     {
@@ -9,6 +12,14 @@
         public LoginColaborador(Sessao.Sessao sessao)
         {
             _sessao = sessao;
+        }
+        //Converte o objeto Colaborador para Json ** Serializar **
+        public void Login(Colaborador colaborador)
+        {
+            //Serializar
+            string colaboradorJSONString = JsonConvert.SerializeObject(colaborador);
+
+            _sessao.Cadastrar(Key, colaboradorJSONString);
         }
     }
 }
