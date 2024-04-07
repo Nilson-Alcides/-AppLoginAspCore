@@ -16,7 +16,33 @@ namespace AppLoginAspCore.Controllers
         {
             _clienteRepository = clienteRepository;
             _loginCliente = loginCliente;
-        }     
+        }
+        public IActionResult Login()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Login([FromForm] Cliente cliente)
+        {
+            Cliente clienteDB = _clienteRepository.Login(cliente.Email, cliente.Senha);
+
+            if (clienteDB.Email != null && clienteDB.Senha != null)
+            {
+                _loginCliente.Login(clienteDB);
+                return new RedirectResult(Url.Action(nameof(PainelCliente)));
+            }
+            else
+            {
+                //Erro na sessão
+                ViewData["MSG_E"] = "Usuário não localizado, por favor verifique e-mail e senha digitado";
+                return View();
+            }
+        }
+        public IActionResult PainelCliente()
+        {
+
+            return View();
+        }
         public IActionResult Index()
         {
             return View();
