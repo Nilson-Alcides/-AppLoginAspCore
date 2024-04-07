@@ -9,5 +9,18 @@
             _context = context;
         }
 
+        /*
+         * CRUD - Cadastrar/Atualizar/Consultar/Remover - RemoverTodos/Exist
+         */
+        //Cadastrar sessão
+        public void Cadastrar(string Key, string Valor)
+        {
+            _context.HttpContext.Session.SetString(Key, Valor);
+        }
+        //Consultar sessão
+        public string Consultar(string Key)
+        {
+            return _context.HttpContext.Session.GetString(Key);
+        }
     }
 }
