@@ -28,7 +28,7 @@ namespace AppLoginAspCore.Libraries.Login
             if (_sessao.Existe(Key))
             {
                 string colaboradorJSONString = _sessao.Consultar(Key);
-                return JsonConvert.DeserializeObject<Colaborador>(colaboradorJSONString); ;
+                return JsonConvert.DeserializeObject<Colaborador>(colaboradorJSONString);
             }
             else
             {
