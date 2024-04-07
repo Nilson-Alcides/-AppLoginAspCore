@@ -1,1 +1,1 @@
-# Aplicação em ASP .NET Core
+# Aplicação em ASP .NET Core (Model-View-Controller)
