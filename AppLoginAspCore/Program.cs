@@ -14,6 +14,19 @@ builder.Services.AddHttpContextAccessor();
 builder.Services.AddScoped<IClienteRepository, ClienteRepository>();
 builder.Services.AddScoped<IColaboradorRepository, ColaboradorRepository>();
 
+// Corrigir problema com TEMPDATA
+builder.Services.AddDistributedMemoryCache();
+builder.Services.AddSession(options =>
+{
+    // Definir um tempo para duração. 
+    options.IdleTimeout = TimeSpan.FromSeconds(60);
+    options.Cookie.HttpOnly = true;
+    // Mostrar para o navegador que o cookie e essencial   
+    options.Cookie.IsEssential = true;
+});
+builder.Services.AddMvc().AddSessionStateTempDataProvider();
+
+builder.Services.AddScoped<AppLoginAspCore.Libraries.Sessao.Sessao>();
 
 var app = builder.Build();
 
@@ -22,11 +35,17 @@ if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
 }
+app.UseHttpsRedirection();
 app.UseStaticFiles();
+app.UseHttpsRedirection();
+app.UseDefaultFiles();
+app.UseCookiePolicy();
+app.UseSession();
 
 app.UseRouting();
 
 app.UseAuthorization();
+
 
 app.MapControllerRoute(
     name: "default",
