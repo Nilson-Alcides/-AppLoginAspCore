@@ -1,4 +1,7 @@
-﻿namespace AppLoginAspCore.Libraries.Login
+﻿using AppLoginAspCore.Models;
+using Newtonsoft.Json;
+
+namespace AppLoginAspCore.Libraries.Login
 {
     public class LoginCliente
     {
@@ -8,5 +11,28 @@
         {
             _sessao = sessao;
         }
+        //Converte o objeto cliente para Json ** Serializar **
+        public void Login(Cliente cliente)
+        {
+            // Serializar
+            string clienteJSONString = JsonConvert.SerializeObject(cliente);
+
+            _sessao.Cadastrar(Key, clienteJSONString);
+        }
+        //Reverter Json para objeto cliente ** Deserializar **
+        public Cliente GetCliente()
+        {
+            // Deserializar
+            if (_sessao.Existe(Key))
+            {
+                string clienteJSONString = _sessao.Consultar(Key);
+                return JsonConvert.DeserializeObject<Cliente>(clienteJSONString);
+            }
+            else
+            {
+                return null;
+            }
+        }
+
     }
 }
