@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "O3XL6MqVBSHrwVlNBaVf3kpCBaxnmxVdcVxpMcWOC0IAv3joSDTrkPYaJIfnBqKl5FLqFwb9YWoHBCnr7HfReA==",
+  "dgSpecHash": "P4Vxx6xI2+nbSmdR/FE0kgRCBzsOUpxpQ9Ck8bxAZR1nq3QEVLmoeN2/Is58nV5CEFWYEU4npa40GCp3qO5+4A==",
   "success": true,
   "projectFilePath": "C:\\Users\\Nilson\\source\\repos\\ASPNETCORE\\AppLoginAspCore\\-AppLoginAspCore\\AppLoginAspCore\\AppLoginAspCore.csproj",
   "expectedPackageFiles": [
@@ -13,6 +13,7 @@
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
     "C:\\Users\\Nilson\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
     "C:\\Users\\Nilson\\.nuget\\packages\\mysql.data\\8.3.0\\mysql.data.8.3.0.nupkg.sha512",
+    "C:\\Users\\Nilson\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
     "C:\\Users\\Nilson\\.nuget\\packages\\system.buffers\\4.5.1\\system.buffers.4.5.1.nupkg.sha512",
     "C:\\Users\\Nilson\\.nuget\\packages\\system.configuration.configurationmanager\\4.4.1\\system.configuration.configurationmanager.4.4.1.nupkg.sha512",
     "C:\\Users\\Nilson\\.nuget\\packages\\system.diagnostics.diagnosticsource\\7.0.2\\system.diagnostics.diagnosticsource.7.0.2.nupkg.sha512",
