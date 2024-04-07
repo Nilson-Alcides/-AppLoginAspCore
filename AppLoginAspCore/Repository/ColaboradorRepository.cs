@@ -56,7 +56,22 @@ namespace AppLoginAspCore.Repository
 
         public void Cadastrar(Colaborador colaborador)
         {
-            throw new NotImplementedException();
+            using (var conexao = new MySqlConnection(_conexaoMySQL))
+            {
+                conexao.Open();
+
+                MySqlCommand cmd = new MySqlCommand("insert into Colaborador(Nome, CPF, Telefone, Email, Senha, Tipo) " +
+                                                     " values (@Nome, @CPF, @Telefone, @Email, @Senha, @Tipo)", conexao); // @: PARAMETRO
+
+                cmd.Parameters.Add("@Nome", MySqlDbType.VarChar).Value = colaborador.Nome;
+                cmd.Parameters.Add("@CPF", MySqlDbType.VarChar).Value = colaborador.CPF;
+                cmd.Parameters.Add("@Telefone", MySqlDbType.VarChar).Value = colaborador.Telefone;
+                cmd.Parameters.Add("@Email", MySqlDbType.VarChar).Value = colaborador.Email;
+                cmd.Parameters.Add("@Senha", MySqlDbType.VarChar).Value = colaborador.Senha;
+
+                cmd.ExecuteNonQuery();
+                conexao.Close();
+            }
         }
 
         public void Excluir(int Id)
