@@ -42,5 +42,14 @@
         {
             _context.HttpContext.Session.Clear();
         }
+        //Atualizar uma sessão
+        public void Atualizar(string Key, string Valor)
+        {
+            if (Existe(Key))
+            {
+                _context.HttpContext.Session.Remove(Key);
+            }
+            _context.HttpContext.Session.SetString(Key, Valor);
+        }
     }
 }
