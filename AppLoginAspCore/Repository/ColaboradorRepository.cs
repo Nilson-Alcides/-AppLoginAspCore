@@ -134,7 +134,36 @@ namespace AppLoginAspCore.Repository
         }
         public List<Colaborador> ObterColaboradorPorEmail(string email)
         {
-            throw new NotImplementedException();
+            List<Colaborador> colabList = new List<Colaborador>();
+            using (var conexao = new MySqlConnection(_conexaoMySQL))
+            {
+                conexao.Open();
+                MySqlCommand cmd = new MySqlCommand("select * from Colaborador WHERE email=@email ", conexao);
+                cmd.Parameters.AddWithValue("@Id", email);
+
+                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+
+                DataTable dt = new DataTable();
+
+                da.Fill(dt);
+                conexao.Close();
+
+                foreach (DataRow dr in dt.Rows)
+                {
+                    colabList.Add(
+                        new Colaborador
+                        {
+                            Id = Convert.ToInt32(dr["Id"]),
+                            Nome = (string)(dr["Nome"]),
+                            CPF = (string)(dr["CPF"]),
+                            Telefone = (string)(dr["Telefone"]),
+                            Senha = (string)(dr["Senha"]),
+                            Email = (string)(dr["Email"]),
+                            Tipo = (string)(dr["Senha"])
+                        });
+                }
+                return colabList;
+            }
         }
         public void Excluir(int Id)
         {
