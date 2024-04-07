@@ -33,6 +33,10 @@ namespace AppLoginAspCore.Libraries.Login
                 return null;
             }
         }
-
+        //Remove a sessão e desloga o Cliente
+        public void Logout()
+        {
+            _sessao.RemoverTodos();
+        }
     }
 }
