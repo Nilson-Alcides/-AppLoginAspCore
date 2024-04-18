@@ -32,11 +32,13 @@ Values("NILSON JOSE ALCIDES","1978-05-01", "M",
 
 alter table Colaborador add column CPF varchar(11);
 alter table Colaborador add column Telefone varchar(14);
+
 desc Colaborador;
+
 insert into Colaborador (Nome, Email, Senha, Tipo)
 values("Thiago Alcides","Thiago@gmal.com","123456","G"),
 ("Bruno Eduaardo","bruno@gmail.com","123456","C");
 select * from Colaborador where Email ="Thiago@gmail.com" and Senha = "123456";
 update Colaborador set CPF="45645678910", Telefone="11965478596" where Id = 2;
 select * from Colaborador where Email ="bruno@gmail.com" and Senha = "123456";
-SELECT * FROM COLABORADOR
+SELECT * FROM COLABORADOR;
