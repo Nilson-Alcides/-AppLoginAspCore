@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "uh5MwiwvWFQNvW9O3esNFVYQY7mcz/BMSpAOLPlkgf8=",
+  "Hash": "M8A8kKasP26R6zJem29bgDpfr6EX+c+cEhQXbNR8xNg=",
   "Source": "AppLoginAspCore",
   "BasePath": "_content/AppLoginAspCore",
   "Mode": "Default",
@@ -1193,6 +1193,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Identity": "C:\\Users\\Nilson\\source\\repos\\ASPNETCORE\\AppLoginAspCore\\-AppLoginAspCore\\AppLoginAspCore\\wwwroot\\Script do Banco\\Scrip_LoginCore.sql",
+      "SourceId": "AppLoginAspCore",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Nilson\\source\\repos\\ASPNETCORE\\AppLoginAspCore\\-AppLoginAspCore\\AppLoginAspCore\\wwwroot\\",
+      "BasePath": "_content/AppLoginAspCore",
+      "RelativePath": "Script do Banco/Scrip_LoginCore.sql",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Script do Banco\\Scrip_LoginCore.sql"
     }
   ]
 }
