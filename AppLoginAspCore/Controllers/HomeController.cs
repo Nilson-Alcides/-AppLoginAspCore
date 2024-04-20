@@ -49,6 +49,7 @@ namespace AppLoginAspCore.Controllers
             //return new ContentResult() { Content = "Este é o Painel do Cliente!" };
             return View();
         }
+        [ClienteAutorizacao]
         public IActionResult LogoutCliente()
         {
             _loginCliente.Logout();

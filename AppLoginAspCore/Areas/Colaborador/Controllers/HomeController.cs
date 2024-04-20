@@ -1,4 +1,5 @@
-﻿using AppLoginAspCore.Libraries.Login;
+﻿using AppLoginAspCore.Libraries.Filtro;
+using AppLoginAspCore.Libraries.Login;
 using AppLoginAspCore.Models.Constants;
 using AppLoginAspCore.Repositories.Contracts;
 using Microsoft.AspNetCore.Mvc;
@@ -16,7 +17,7 @@ namespace AppLoginAspCore.Areas.Colaborador.Controllers
             _repositoryColaborador = repositoryColaborador;
             _loginColaborador = loginColaborador;
         }
-
+        [ColaboradorAutorizacao]
         public IActionResult Index()
         {
             return View();
@@ -52,6 +53,7 @@ namespace AppLoginAspCore.Areas.Colaborador.Controllers
                 return View();
             }
         }
+        [ColaboradorAutorizacao]
         public IActionResult PainelGerente()
         {
             ViewBag.Nome = _loginColaborador.GetColaborador().Nome;
@@ -60,6 +62,7 @@ namespace AppLoginAspCore.Areas.Colaborador.Controllers
             //return new ContentResult() { Content = "Este é o Painel do Cliente!" };
             return View();
         }
+        [ColaboradorAutorizacao]
         public IActionResult PainelComun()
         {
             ViewBag.Nome = _loginColaborador.GetColaborador().Nome;
@@ -69,10 +72,12 @@ namespace AppLoginAspCore.Areas.Colaborador.Controllers
             return View();
 
         }
+        [ColaboradorAutorizacao]
         public IActionResult Painel()
         {
             return View();
         }
+        [ColaboradorAutorizacao]
         public IActionResult Logout()
         {
             _loginColaborador.Logout();
