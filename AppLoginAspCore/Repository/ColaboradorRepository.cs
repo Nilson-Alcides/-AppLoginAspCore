@@ -123,7 +123,7 @@ namespace AppLoginAspCore.Repository
                     colaborador.Telefone = (string)(dr["Telefone"]);
                     colaborador.Senha = (string)(dr["Senha"]);
                     colaborador.Email = (string)(dr["Email"]);
-                    colaborador.Tipo = (string)(dr["Senha"]);
+                    colaborador.Tipo = (string)(dr["Tipo"]);
                 }
                 return colaborador;
             }
@@ -179,7 +179,7 @@ namespace AppLoginAspCore.Repository
             {
                 conexao.Open();
                 MySqlCommand cmd = new MySqlCommand("update Colaborador set Nome=@Nome, CPF=@CPF, Telefone=@Telefone, " +
-                    " Email=@Email, Senha=@Senha, Tipo=@Tipo ", conexao);
+                    " Email=@Email, Senha=@Senha, Tipo=@Tipo Where Id=@Id ", conexao);
 
                 cmd.Parameters.Add("@Id", MySqlDbType.VarChar).Value = colaborador.Id;
                 cmd.Parameters.Add("@Nome", MySqlDbType.VarChar).Value = colaborador.Nome;
