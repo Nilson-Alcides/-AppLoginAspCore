@@ -1,3 +1,4 @@
+using AppLoginAspCore.Libraries.Filtro;
 using AppLoginAspCore.Libraries.Login;
 using AppLoginAspCore.Libraries.Sessao;
 using AppLoginAspCore.Models;
@@ -39,6 +40,7 @@ namespace AppLoginAspCore.Controllers
                 return View();
             }
         }
+        [ClienteAutorizacao]
         public IActionResult PainelCliente()
         {
             ViewBag.Nome = _loginCliente.GetCliente().Nome;
