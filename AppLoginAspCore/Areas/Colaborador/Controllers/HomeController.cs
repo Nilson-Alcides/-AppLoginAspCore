@@ -18,10 +18,12 @@ namespace AppLoginAspCore.Areas.Colaborador.Controllers
             _loginColaborador = loginColaborador;
         }
         [ColaboradorAutorizacao]
+        [ValidateHttpReferer]
         public IActionResult Index()
         {
             return View();
-        }       
+        }
+        [ValidateHttpReferer]
         public IActionResult Login()
         {
             return View();
@@ -69,6 +71,7 @@ namespace AppLoginAspCore.Areas.Colaborador.Controllers
             return View();
         }
         [ColaboradorAutorizacao]
+        [ValidateHttpReferer]
         public IActionResult Logout()
         {
             _loginColaborador.Logout();
