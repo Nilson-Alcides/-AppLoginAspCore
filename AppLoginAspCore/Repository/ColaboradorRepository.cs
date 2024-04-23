@@ -53,6 +53,7 @@ namespace AppLoginAspCore.Repository
         }
         public void Cadastrar(Colaborador colaborador)
         {
+            string Comum = ColaboradorTipoConstant.Comum;
             using (var conexao = new MySqlConnection(_conexaoMySQL))
             {
                 conexao.Open();
@@ -60,11 +61,10 @@ namespace AppLoginAspCore.Repository
                 MySqlCommand cmd = new MySqlCommand("insert into Colaborador(Nome, CPF, Telefone, Email, Senha, Tipo) " +
                                                      " values (@Nome, @CPF, @Telefone, @Email, @Senha, @Tipo)", conexao); // @: PARAMETRO
 
-                cmd.Parameters.Add("@Nome", MySqlDbType.VarChar).Value = colaborador.Nome;
-                cmd.Parameters.Add("@CPF", MySqlDbType.VarChar).Value = colaborador.CPF;
-                cmd.Parameters.Add("@Telefone", MySqlDbType.VarChar).Value = colaborador.Telefone;
+                cmd.Parameters.Add("@Nome", MySqlDbType.VarChar).Value = colaborador.Nome;                
                 cmd.Parameters.Add("@Email", MySqlDbType.VarChar).Value = colaborador.Email;
                 cmd.Parameters.Add("@Senha", MySqlDbType.VarChar).Value = colaborador.Senha;
+                cmd.Parameters.Add("@Tipo", MySqlDbType.VarChar).Value = Comum;
 
                 cmd.ExecuteNonQuery();
                 conexao.Close();
@@ -92,11 +92,9 @@ namespace AppLoginAspCore.Repository
                         {
                             Id = Convert.ToInt32(dr["Id"]),
                             Nome = (string)(dr["Nome"]),
-                            CPF = (string)(dr["CPF"]),
-                            Telefone = (string)(dr["Telefone"]),
-                            Senha = (string)(dr["Senha"]),
                             Email = (string)(dr["Email"]),
-                            Tipo = (string)(dr["Senha"])
+                            Senha = (string)(dr["Senha"]),                            
+                            Tipo = (string)(dr["Tipo"])
                         });
                 }
                 return colabList;
@@ -119,10 +117,8 @@ namespace AppLoginAspCore.Repository
                 {
                     colaborador.Id = (Int32)(dr["Id"]);
                     colaborador.Nome = (string)(dr["Nome"]);
-                    colaborador.CPF = (string)(dr["CPF"]);
-                    colaborador.Telefone = (string)(dr["Telefone"]);
-                    colaborador.Senha = (string)(dr["Senha"]);
                     colaborador.Email = (string)(dr["Email"]);
+                    colaborador.Senha = (string)(dr["Senha"]);                    
                     colaborador.Tipo = (string)(dr["Tipo"]);
                 }
                 return colaborador;
@@ -150,9 +146,7 @@ namespace AppLoginAspCore.Repository
                         new Colaborador
                         {
                             Id = Convert.ToInt32(dr["Id"]),
-                            Nome = (string)(dr["Nome"]),
-                            CPF = (string)(dr["CPF"]),
-                            Telefone = (string)(dr["Telefone"]),
+                            Nome = (string)(dr["Nome"]),                            
                             Senha = (string)(dr["Senha"]),
                             Email = (string)(dr["Email"]),
                             Tipo = (string)(dr["Senha"])
@@ -182,9 +176,7 @@ namespace AppLoginAspCore.Repository
                     " Email=@Email, Senha=@Senha, Tipo=@Tipo Where Id=@Id ", conexao);
 
                 cmd.Parameters.Add("@Id", MySqlDbType.VarChar).Value = colaborador.Id;
-                cmd.Parameters.Add("@Nome", MySqlDbType.VarChar).Value = colaborador.Nome;
-                cmd.Parameters.Add("@CPF", MySqlDbType.VarChar).Value = colaborador.CPF;
-                cmd.Parameters.Add("@Telefone", MySqlDbType.VarChar).Value = colaborador.Telefone;
+                cmd.Parameters.Add("@Nome", MySqlDbType.VarChar).Value = colaborador.Nome;                
                 cmd.Parameters.Add("@Email", MySqlDbType.VarChar).Value = colaborador.Email;
                 cmd.Parameters.Add("@Senha", MySqlDbType.VarChar).Value = colaborador.Senha;
                 cmd.Parameters.Add("@Tipo", MySqlDbType.VarChar).Value = Tipo;

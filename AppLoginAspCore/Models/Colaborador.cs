@@ -17,13 +17,13 @@ namespace AppLoginAspCore.Models
         [Required(ErrorMessage = "O nome completo é obrigatório.")]
         public string Nome { get; set; }
 
-        [Display(Name = "Celular")]
-        [Required(ErrorMessage = "O Celular é obrigatorio")]
-        public string Telefone { get; set; }
+        //[Display(Name = "Celular")]
+        //[Required(ErrorMessage = "O Celular é obrigatorio")]
+        //public string Telefone { get; set; }
 
-        [Display(Name = "CPF")]
-        [Required(ErrorMessage = "O CPF é obrigatorio")]       
-        public string CPF { get; set; }
+        //[Display(Name = "CPF")]
+        //[Required(ErrorMessage = "O CPF é obrigatorio")]       
+        //public string CPF { get; set; }
 
         [Display(Name = "Email")]
         [EmailAddress(ErrorMessage = " O Email não é valido")]
