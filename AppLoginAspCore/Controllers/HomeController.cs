@@ -2,6 +2,7 @@ using AppLoginAspCore.Libraries.Filtro;
 using AppLoginAspCore.Libraries.Login;
 using AppLoginAspCore.Libraries.Sessao;
 using AppLoginAspCore.Models;
+using AppLoginAspCore.Models.Contants;
 using AppLoginAspCore.Repositories.Contract;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
@@ -58,6 +59,19 @@ namespace AppLoginAspCore.Controllers
         public IActionResult Index()
         {
             return View();
+        }
+        public IActionResult Cadastrar()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Cadastrar(Cliente cliente)
+        {
+            cliente.Situacao  = SituacaoConstant.Ativo;
+            
+                _clienteRepository.Cadastrar(cliente);
+                return RedirectToAction(nameof(Cadastrar));
+           
         }
 
         public IActionResult Privacy()
