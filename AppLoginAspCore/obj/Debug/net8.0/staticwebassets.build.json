@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "a3/cwR8VSf0E1BoEqOnHcYNEGCxywVySW9UrzqsVx0I=",
+  "Hash": "iNpnT+KWaaS/ix4vKjQs0gI71PdF6szAfezvYfGGSzk=",
   "Source": "AppLoginAspCore",
   "BasePath": "_content/AppLoginAspCore",
   "Mode": "Default",
@@ -1193,6 +1193,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Identity": "C:\\Users\\Nilson\\source\\repos\\ASPNETCORE\\AppLoginAspCore\\-AppLoginAspCore\\AppLoginAspCore\\wwwroot\\resources\\lib.rar",
+      "SourceId": "AppLoginAspCore",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Nilson\\source\\repos\\ASPNETCORE\\AppLoginAspCore\\-AppLoginAspCore\\AppLoginAspCore\\wwwroot\\",
+      "BasePath": "_content/AppLoginAspCore",
+      "RelativePath": "resources/lib.rar",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\resources\\lib.rar"
     },
     {
       "Identity": "C:\\Users\\Nilson\\source\\repos\\ASPNETCORE\\AppLoginAspCore\\-AppLoginAspCore\\AppLoginAspCore\\wwwroot\\resources\\lib\\bootstrap-4.2.1-dist\\css\\bootstrap.css",

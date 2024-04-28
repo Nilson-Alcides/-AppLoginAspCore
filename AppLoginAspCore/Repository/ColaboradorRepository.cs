@@ -58,8 +58,8 @@ namespace AppLoginAspCore.Repository
             {
                 conexao.Open();
 
-                MySqlCommand cmd = new MySqlCommand("insert into Colaborador(Nome, CPF, Telefone, Email, Senha, Tipo) " +
-                                                     " values (@Nome, @CPF, @Telefone, @Email, @Senha, @Tipo)", conexao); // @: PARAMETRO
+                MySqlCommand cmd = new MySqlCommand("insert into Colaborador(Nome, Email, Senha, Tipo) " +
+                                                     " values (@Nome, @Email, @Senha, @Tipo)", conexao); // @: PARAMETRO
 
                 cmd.Parameters.Add("@Nome", MySqlDbType.VarChar).Value = colaborador.Nome;                
                 cmd.Parameters.Add("@Email", MySqlDbType.VarChar).Value = colaborador.Email;
@@ -172,7 +172,7 @@ namespace AppLoginAspCore.Repository
             using (var conexao = new MySqlConnection(_conexaoMySQL))
             {
                 conexao.Open();
-                MySqlCommand cmd = new MySqlCommand("update Colaborador set Nome=@Nome, CPF=@CPF, Telefone=@Telefone, " +
+                MySqlCommand cmd = new MySqlCommand("update Colaborador set Nome=@Nome, " +
                     " Email=@Email, Senha=@Senha, Tipo=@Tipo Where Id=@Id ", conexao);
 
                 cmd.Parameters.Add("@Id", MySqlDbType.VarChar).Value = colaborador.Id;

@@ -1,6 +1,5 @@
 ﻿using AppLoginAspCore.Libraries.Filtro;
 using AppLoginAspCore.Libraries.Login;
-using AppLoginAspCore.Models.Constants;
 using AppLoginAspCore.Repositories.Contracts;
 using Microsoft.AspNetCore.Mvc;
 
@@ -23,7 +22,7 @@ namespace AppLoginAspCore.Areas.Colaborador.Controllers
         {
             return View();
         }
-        [ValidateHttpReferer]
+      
         public IActionResult Login()
         {
             return View();

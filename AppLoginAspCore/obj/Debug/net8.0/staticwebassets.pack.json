@@ -249,6 +249,10 @@
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
+      "Id": "C:\\Users\\Nilson\\source\\repos\\ASPNETCORE\\AppLoginAspCore\\-AppLoginAspCore\\AppLoginAspCore\\wwwroot\\resources\\lib.rar",
+      "PackagePath": "staticwebassets\\resources\\lib.rar"
+    },
+    {
       "Id": "C:\\Users\\Nilson\\source\\repos\\ASPNETCORE\\AppLoginAspCore\\-AppLoginAspCore\\AppLoginAspCore\\wwwroot\\resources\\lib\\bootstrap-4.2.1-dist\\css\\bootstrap-grid.css",
       "PackagePath": "staticwebassets\\resources\\lib\\bootstrap-4.2.1-dist\\css\\bootstrap-grid.css"
     },
