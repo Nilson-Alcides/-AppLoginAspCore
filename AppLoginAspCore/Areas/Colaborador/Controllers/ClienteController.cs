@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace AppLoginAspCore.Areas.Colaborador.Controllers
 {
     [Area("Colaborador")]
-    //[ColaboradorAutorizacao]
+    [ColaboradorAutorizacao]
     public class ClienteController : Controller
     {
         private IClienteRepository _clienteRepository;
@@ -30,5 +30,6 @@ namespace AppLoginAspCore.Areas.Colaborador.Controllers
             _clienteRepository.Cadastrar(cliente);
             return View();
         }
+
     }
 }

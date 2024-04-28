@@ -15,6 +15,10 @@ namespace AppLoginAspCore.Repositories.Contract
         //CRUD
         void Cadastrar(Cliente cliente);
         void Atualizar(Cliente cliente);
+
+        void Ativar(Cliente cliente);
+        void Desativar(Cliente cliente);
+
         void Excluir(int Id);
         Cliente ObterCliente(int Id);
         IEnumerable<Cliente> ObterTodosClientes();
