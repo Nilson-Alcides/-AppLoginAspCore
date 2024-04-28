@@ -1,4 +1,5 @@
 using AppLoginAspCore.Libraries.Login;
+using AppLoginAspCore.Libraries.Middleware;
 using AppLoginAspCore.Repositories.Contract;
 using AppLoginAspCore.Repositories.Contracts;
 using AppLoginAspCore.Repository;
@@ -45,6 +46,7 @@ app.UseStaticFiles();
 app.UseDefaultFiles();
 app.UseCookiePolicy();
 app.UseSession();
+app.UseMiddleware<ValidateAntiForgeryTokenMiddleware>();
 
 app.UseRouting();
 

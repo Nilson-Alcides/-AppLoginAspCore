@@ -28,6 +28,7 @@ namespace AppLoginAspCore.Areas.Colaborador.Controllers
             return View();
         }
         [HttpPost]
+        [ValidateHttpReferer]
         public IActionResult Login([FromForm] Models.Colaborador colaborador)
         {
             Models.Colaborador colaboradorDB = _repositoryColaborador.Login(colaborador.Email, colaborador.Senha);

@@ -23,7 +23,7 @@ namespace AppLoginAspCore.Controllers
         {
             return View();
         }
-        [HttpPost]
+        [HttpPost]       
         public IActionResult Login([FromForm] Cliente cliente)
         {
             Cliente clienteDB = _clienteRepository.Login(cliente.Email, cliente.Senha);
