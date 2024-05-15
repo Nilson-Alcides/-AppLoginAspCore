@@ -1,4 +1,5 @@
 ﻿
+using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -11,6 +12,7 @@ namespace AppLoginAspCore.Models
     public class Colaborador
     {
         [Display(Name = "Código", Description = "Código.")]
+        [ValidateNever]
         public int Id { get; set; }
 
         [Display(Name = "Nome completo", Description = "Nome e Sobrenome.")]
@@ -40,7 +42,7 @@ namespace AppLoginAspCore.Models
          * TIPO ColaboradorTipoConstant
         */
         [Display(Name = "Tipo")]
-        [Required(ErrorMessage = "O Tipo é obrigatorio")]
+        //[Required(ErrorMessage = "O Tipo é obrigatorio")]
         public string Tipo { get; set; } 
     }
 }
