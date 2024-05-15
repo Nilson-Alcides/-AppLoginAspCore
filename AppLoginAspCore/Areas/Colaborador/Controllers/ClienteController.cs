@@ -2,6 +2,7 @@
 using AppLoginAspCore.Models;
 using AppLoginAspCore.Repositories.Contract;
 using Microsoft.AspNetCore.Mvc;
+using MySqlX.XDevAPI;
 
 namespace AppLoginAspCore.Areas.Colaborador.Controllers
 {
@@ -30,26 +31,19 @@ namespace AppLoginAspCore.Areas.Colaborador.Controllers
             _clienteRepository.Cadastrar(cliente);
             return View();
         }
-        public IActionResult Ativar( int id)
+      
+        [ValidateHttpReferer]
+        public IActionResult Ativar(int id)
         {
-            return View(_clienteRepository.ObterCliente(id));
-        }
-        [HttpPost]
-        public IActionResult Ativar(Cliente cliente)
-        {
-            _clienteRepository.Ativar(cliente);
+            _clienteRepository.Ativar(id);
             return RedirectToAction(nameof(Index));
-        }
+        }       
+        [ValidateHttpReferer]
         public IActionResult Desativar(int id)
         {
-            return View(_clienteRepository.ObterCliente(id));
-        }
-        [HttpPost]
-        public IActionResult Desativar(Cliente cliente)
-        {
-            _clienteRepository.Desativar(cliente);
+            _clienteRepository.Desativar(id);
             return RedirectToAction(nameof(Index));
         }
     }
 }
-}
+
