@@ -19,6 +19,25 @@ namespace AppLoginAspCore.Areas.Colaborador.Controllers
         {
             return View(_colaboradorRepository.ObterTodosColaboradores());
         }
+        [HttpGet]       
+        public IActionResult Cadastrar()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Cadastrar(Models.Colaborador colaborador)
+        {
+            if (ModelState.IsValid)
+            {
+                colaborador.Tipo = ColaboradorTipoConstant.Comum;
+                _colaboradorRepository.Cadastrar(colaborador);
 
+                TempData["MSG_S"] = "Registro salvo com sucesso!";
+
+                return RedirectToAction(nameof(Index));
+
+            }
+            return View();
+        }
     }
 }

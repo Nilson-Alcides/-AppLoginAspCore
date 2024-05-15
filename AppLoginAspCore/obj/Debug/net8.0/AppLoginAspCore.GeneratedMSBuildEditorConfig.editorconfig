@@ -30,6 +30,10 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQ29sYWJvcmFkb3JcVmlld3NcQ2xpZW50ZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Nilson/source/repos/ASPNETCORE/AppLoginAspCore/-AppLoginAspCore/AppLoginAspCore/Areas/Colaborador/Views/Colaborador/Cadastrar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQ29sYWJvcmFkb3JcVmlld3NcQ29sYWJvcmFkb3JcQ2FkYXN0cmFyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Nilson/source/repos/ASPNETCORE/AppLoginAspCore/-AppLoginAspCore/AppLoginAspCore/Areas/Colaborador/Views/Colaborador/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQ29sYWJvcmFkb3JcVmlld3NcQ29sYWJvcmFkb3JcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
