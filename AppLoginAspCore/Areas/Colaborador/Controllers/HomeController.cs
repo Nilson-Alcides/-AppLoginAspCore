@@ -63,8 +63,8 @@ namespace AppLoginAspCore.Areas.Colaborador.Controllers
         //    ViewBag.Email = _loginColaborador.GetColaborador().Email;
         //    return new ContentResult() { Content = "Este é o Painel do Cliente!" };
         //    return View();
-
         //}
+
         [ColaboradorAutorizacao]
         public IActionResult Painel()
         {

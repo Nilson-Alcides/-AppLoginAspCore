@@ -1,5 +1,6 @@
 ﻿using AppLoginAspCore.Libraries.Filtro;
 using AppLoginAspCore.Models.Constants;
+using AppLoginAspCore.Repositories.Contract;
 using AppLoginAspCore.Repositories.Contracts;
 using AppLoginAspCore.Repository;
 using Microsoft.AspNetCore.Mvc;
@@ -59,6 +60,11 @@ namespace AppLoginAspCore.Areas.Colaborador.Controllers
             }
             return View();
         }
-
+        [ValidateHttpReferer]
+        public IActionResult Excluir(int id)
+        {
+            _colaboradorRepository.Excluir(id);
+            return RedirectToAction(nameof(Index));
+        }
     }
 }
