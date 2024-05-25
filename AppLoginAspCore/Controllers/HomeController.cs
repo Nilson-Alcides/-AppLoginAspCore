@@ -65,13 +65,15 @@ namespace AppLoginAspCore.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult Cadastrar(Cliente cliente)
+
+        public IActionResult Cadastrar([FromForm] Cliente cliente)
         {
-            cliente.Situacao  = SituacaoConstant.Ativo;
-            
-                _clienteRepository.Cadastrar(cliente);
-                return RedirectToAction(nameof(Cadastrar));
-           
+             if (ModelState.IsValid) {           
+
+            _clienteRepository.Cadastrar(cliente);
+            return RedirectToAction(nameof(Cadastrar));
+        }
+            return View();
         }
 
         public IActionResult Privacy()

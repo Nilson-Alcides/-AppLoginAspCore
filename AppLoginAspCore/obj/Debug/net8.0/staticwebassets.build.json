@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "iNpnT+KWaaS/ix4vKjQs0gI71PdF6szAfezvYfGGSzk=",
+  "Hash": "Jc6scjfY8kihkAtRAx1vbwDpgHcIN9HcM5N5xd2Kxjk=",
   "Source": "AppLoginAspCore",
   "BasePath": "_content/AppLoginAspCore",
   "Mode": "Default",
@@ -1193,6 +1193,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Identity": "C:\\Users\\Nilson\\source\\repos\\ASPNETCORE\\AppLoginAspCore\\-AppLoginAspCore\\AppLoginAspCore\\wwwroot\\lib\\mask\\jquery.mask.min.js",
+      "SourceId": "AppLoginAspCore",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Nilson\\source\\repos\\ASPNETCORE\\AppLoginAspCore\\-AppLoginAspCore\\AppLoginAspCore\\wwwroot\\",
+      "BasePath": "_content/AppLoginAspCore",
+      "RelativePath": "lib/mask/jquery.mask.min.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\lib\\mask\\jquery.mask.min.js"
     },
     {
       "Identity": "C:\\Users\\Nilson\\source\\repos\\ASPNETCORE\\AppLoginAspCore\\-AppLoginAspCore\\AppLoginAspCore\\wwwroot\\resources\\lib.rar",

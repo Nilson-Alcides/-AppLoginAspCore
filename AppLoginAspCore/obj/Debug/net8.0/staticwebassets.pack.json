@@ -249,6 +249,10 @@
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
+      "Id": "C:\\Users\\Nilson\\source\\repos\\ASPNETCORE\\AppLoginAspCore\\-AppLoginAspCore\\AppLoginAspCore\\wwwroot\\lib\\mask\\jquery.mask.min.js",
+      "PackagePath": "staticwebassets\\lib\\mask\\jquery.mask.min.js"
+    },
+    {
       "Id": "C:\\Users\\Nilson\\source\\repos\\ASPNETCORE\\AppLoginAspCore\\-AppLoginAspCore\\AppLoginAspCore\\wwwroot\\resources\\lib.rar",
       "PackagePath": "staticwebassets\\resources\\lib.rar"
     },

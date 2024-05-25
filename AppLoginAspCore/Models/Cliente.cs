@@ -23,7 +23,7 @@ namespace AppLoginAspCore.Models
         public DateTime Nascimento { get; set; }
 
         [Display(Name = "Sexo")]
-        [Required(ErrorMessage = "O Sexo é obrigatorio")]
+        [Required(ErrorMessage = "Selecione uma opção")]
         [StringLength(1, ErrorMessage = "Deve conter 1 caracter")]
         public string Sexo { get; set; }
 
@@ -47,7 +47,7 @@ namespace AppLoginAspCore.Models
         public string Senha { get; set; }
         
         [Display(Name = "Situação")]
-        [Required(ErrorMessage = "O Situação é obrigatorio")]
-        public string Situacao { get; set; }
+       
+        public string? Situacao { get; set; }
     }
 }
