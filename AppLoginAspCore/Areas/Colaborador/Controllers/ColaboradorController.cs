@@ -32,12 +32,13 @@ namespace AppLoginAspCore.Areas.Colaborador.Controllers
         public IActionResult Cadastrar([FromForm] Models.Colaborador colaborador)
          {
             colaborador.Tipo = ColaboradorTipoConstant.Comum;
-            
+            if (ModelState.IsValid) {
                 _colaboradorRepository.Cadastrar(colaborador);
                 TempData["MSG_S"] = "Registro salvo com sucesso!";
 
                 return RedirectToAction(nameof(Index));
-          
+            }
+            return View();
         }
         [HttpGet]
         [ValidateHttpReferer]

@@ -43,6 +43,6 @@ namespace AppLoginAspCore.Models
         */
         [Display(Name = "Tipo")]
         //[Required(ErrorMessage = "O Tipo é obrigatorio")]
-        public string Tipo { get; set; } 
+        public string? Tipo { get; set; } 
     }
 }
