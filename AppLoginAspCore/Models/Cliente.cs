@@ -1,4 +1,5 @@
 ﻿
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -28,7 +29,7 @@ namespace AppLoginAspCore.Models
         public string Sexo { get; set; }
 
         [Display(Name = "CPF")]
-        [Required(ErrorMessage = "O CPF é obrigatorio")]
+        [Required(ErrorMessage = "O CPF é obrigatorio")]     
         public string CPF { get; set; }
 
         [Display(Name = "Celular")]
@@ -46,8 +47,7 @@ namespace AppLoginAspCore.Models
         [StringLength(10, MinimumLength = 6, ErrorMessage = "A senha deve ter entre 6 e 10 caracteres")]
         public string Senha { get; set; }
         
-        [Display(Name = "Situação")]
-       
+        [Display(Name = "Situação")]       
         public string? Situacao { get; set; }
     }
 }

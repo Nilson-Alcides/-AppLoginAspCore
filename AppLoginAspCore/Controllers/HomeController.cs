@@ -5,7 +5,9 @@ using AppLoginAspCore.Models;
 using AppLoginAspCore.Models.Contants;
 using AppLoginAspCore.Repositories.Contract;
 using Microsoft.AspNetCore.Mvc;
+using MySqlX.XDevAPI;
 using System.Diagnostics;
+
 
 namespace AppLoginAspCore.Controllers
 {
@@ -24,7 +26,7 @@ namespace AppLoginAspCore.Controllers
         {
             return View();
         }
-        [HttpPost]       
+        [HttpPost]
         public IActionResult Login([FromForm] Cliente cliente)
         {
             Cliente clienteDB = _clienteRepository.Login(cliente.Email, cliente.Senha);
@@ -62,20 +64,40 @@ namespace AppLoginAspCore.Controllers
         }
         public IActionResult Cadastrar()
         {
+            
             return View();
         }
-        [HttpPost]
 
+        
+       
+        [HttpPost]
         public IActionResult Cadastrar([FromForm] Cliente cliente)
         {
-             if (ModelState.IsValid) {           
+            var CPFExit = _clienteRepository.BuscaCpfCliente(cliente.CPF).CPF;
+            var EmailExit = _clienteRepository.BuscaEmailCliente(cliente.Email).Email;
 
-            _clienteRepository.Cadastrar(cliente);
-            return RedirectToAction(nameof(Cadastrar));
-        }
+            if (!string.IsNullOrWhiteSpace(CPFExit))
+            {
+                //CPF Cadastrado
+                ViewData["MSG_CPF"] = "CPF já cadastrado, por favor verifique os dados digitado";
+                return View();
+
+            }
+            else if (!string.IsNullOrWhiteSpace(EmailExit))
+            {
+                //Email Cadastrado
+                ViewData["MSG_Email"] = "E-mail já cadastrado, por favor verifique os dados digitado";
+                return View();
+            }
+            else if (ModelState.IsValid)
+            {
+
+                _clienteRepository.Cadastrar(cliente);
+                return RedirectToAction(nameof(Login));
+            }
             return View();
         }
-
+        
         public IActionResult Privacy()
         {
             return View();

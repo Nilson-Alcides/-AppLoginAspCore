@@ -5,3 +5,12 @@
     $('.Telefone').mask('(00) 0000-0000');
     $('.Nascimento').mask("00/00/0000", { placeholder: "__/__/____" });
 });
+$(document).ready(function () {
+
+
+
+
+
+
+
+});

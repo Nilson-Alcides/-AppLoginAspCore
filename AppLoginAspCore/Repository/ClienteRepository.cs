@@ -17,7 +17,7 @@ namespace AppLoginAspCore.Repository
             // Injeção de dependencia do banco de dados
             _conexaoMySQL = conf.GetConnectionString("ConexaoMySQL");
         }
-       
+
         //Logim Cliente
         public Cliente Login(string Email, string Senha)
         {
@@ -91,27 +91,41 @@ namespace AppLoginAspCore.Repository
         public void Cadastrar(Cliente cliente)
         {
             string Situacao = SituacaoConstant.Ativo;
-
-            using (var conexao = new MySqlConnection(_conexaoMySQL))
+            try
             {
-                conexao.Open();
+                using (var conexao = new MySqlConnection(_conexaoMySQL))
+                {
+                    conexao.Open();
 
-                MySqlCommand cmd = new MySqlCommand("insert into Cliente(Nome, Nascimento, Sexo,  CPF, Telefone, Email, Senha, Situacao) " +
-                " values (@Nome, @Nascimento, @Sexo, @CPF, @Telefone, @Email, @Senha, @Situacao)", conexao); // @: PARAMETRO
+                    MySqlCommand cmd = new MySqlCommand("insert into Cliente(Nome, Nascimento, Sexo,  CPF, Telefone, Email, Senha, Situacao) " +
+                    " values (@Nome, @Nascimento, @Sexo, @CPF, @Telefone, @Email, @Senha, @Situacao)", conexao); // @: PARAMETRO
 
 
-                cmd.Parameters.Add("@Nome", MySqlDbType.VarChar).Value = cliente.Nome;
-                cmd.Parameters.Add("@Nascimento", MySqlDbType.DateTime).Value = cliente.Nascimento.ToString("yyyy/MM/dd");
-                cmd.Parameters.Add("@Sexo", MySqlDbType.VarChar).Value = cliente.Sexo;
-                cmd.Parameters.Add("@CPF", MySqlDbType.VarChar).Value = cliente.CPF;
-                cmd.Parameters.Add("@Telefone", MySqlDbType.VarChar).Value = cliente.Telefone;
-                cmd.Parameters.Add("@Email", MySqlDbType.VarChar).Value = cliente.Email;
-                cmd.Parameters.Add("@Senha", MySqlDbType.VarChar).Value = cliente.Senha;
-                cmd.Parameters.Add("@Situacao", MySqlDbType.VarChar).Value = Situacao;
+                    cmd.Parameters.Add("@Nome", MySqlDbType.VarChar).Value = cliente.Nome;
+                    cmd.Parameters.Add("@Nascimento", MySqlDbType.DateTime).Value = cliente.Nascimento.ToString("yyyy/MM/dd");
+                    cmd.Parameters.Add("@Sexo", MySqlDbType.VarChar).Value = cliente.Sexo;
+                    cmd.Parameters.Add("@CPF", MySqlDbType.VarChar).Value = cliente.CPF;
+                    cmd.Parameters.Add("@Telefone", MySqlDbType.VarChar).Value = cliente.Telefone;
+                    cmd.Parameters.Add("@Email", MySqlDbType.VarChar).Value = cliente.Email;
+                    cmd.Parameters.Add("@Senha", MySqlDbType.VarChar).Value = cliente.Senha;
+                    cmd.Parameters.Add("@Situacao", MySqlDbType.VarChar).Value = Situacao;
 
-                cmd.ExecuteNonQuery();
-                conexao.Close();
+                    cmd.ExecuteNonQuery();
+                    conexao.Close();
+                }
+
             }
+            catch (MySqlException ex)
+            {
+
+                throw new Exception("Erro no banco em cadastro cliente" + ex.Message);
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception("Erro na aplicação em cadastro cliente" + ex.Message);
+            }
+
         }
         public void Atualizar(Cliente cliente)
         {
@@ -163,12 +177,12 @@ namespace AppLoginAspCore.Repository
                 {
                     cliente.Id = (Int32)(dr["Id"]);
                     cliente.Nome = (string)(dr["Nome"]);
-                    cliente.Nascimento = (DateTime)(dr["Nascimento"]);                    
+                    cliente.Nascimento = (DateTime)(dr["Nascimento"]);
                     cliente.Sexo = (string)(dr["Sexo"]);
                     cliente.CPF = (string)(dr["CPF"]);
                     cliente.Telefone = (string)(dr["Telefone"]);
                     cliente.Email = (string)(dr["Email"]);
-                    cliente.Senha = (string)(dr["Senha"]);                    
+                    cliente.Senha = (string)(dr["Senha"]);
                     cliente.Situacao = (string)(dr["Situacao"]);
 
                 }
@@ -184,7 +198,7 @@ namespace AppLoginAspCore.Repository
                 conexao.Open();
                 MySqlCommand cmd = new MySqlCommand("update Cliente set Situacao=@Situacao WHERE Id=@Id ", conexao);
 
-                cmd.Parameters.Add("@Id", MySqlDbType.VarChar).Value = Id;               
+                cmd.Parameters.Add("@Id", MySqlDbType.VarChar).Value = Id;
                 cmd.Parameters.Add("@Situacao", MySqlDbType.VarChar).Value = Situacao;
                 cmd.ExecuteNonQuery();
                 conexao.Close();
@@ -203,6 +217,49 @@ namespace AppLoginAspCore.Repository
                 cmd.Parameters.Add("@Situacao", MySqlDbType.VarChar).Value = Situacao;
                 cmd.ExecuteNonQuery();
                 conexao.Close();
+            }
+        }
+        //Busca cpf cadastrado
+        public Cliente BuscaCpfCliente(string CPF)
+        {
+            using (var conexao = new MySqlConnection(_conexaoMySQL))
+            {
+                conexao.Open();
+                MySqlCommand cmd = new MySqlCommand("select CPF from Cliente WHERE CPF=@CPF ", conexao);
+                cmd.Parameters.AddWithValue("@CPF", CPF);
+
+                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                MySqlDataReader dr;
+
+                Cliente cliente = new Cliente();
+                dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+                while (dr.Read())
+                {
+                    cliente.CPF = (string)(dr["CPF"]);
+
+                }
+                return cliente;
+            }
+        }
+        public Cliente BuscaEmailCliente(string email)
+        {
+            using (var conexao = new MySqlConnection(_conexaoMySQL))
+            {
+                conexao.Open();
+                MySqlCommand cmd = new MySqlCommand("select Email from Cliente WHERE Email=@Email ", conexao);
+                cmd.Parameters.AddWithValue("@Email", email);
+
+                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                MySqlDataReader dr;
+
+                Cliente cliente = new Cliente();
+                dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+                while (dr.Read())
+                {
+                    cliente.Email = (string)(dr["Email"]);
+
+                }
+                return cliente;
             }
         }
     }
