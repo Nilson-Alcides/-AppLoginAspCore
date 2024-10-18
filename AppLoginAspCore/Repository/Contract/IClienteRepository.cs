@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using X.PagedList;
 //using X.PagedList;
 
 namespace AppLoginAspCore.Repositories.Contract
@@ -27,6 +28,6 @@ namespace AppLoginAspCore.Repositories.Contract
         Cliente BuscaEmailCliente(string email);
 
         IEnumerable<Cliente> ObterTodosClientes();
-        //  IPagedList<Cliente> ObterTodosClientes(int? pagina, string pesquisa);
+        IPagedList<Cliente> ObterTodosClientes(int? pagina, string pesquisa);
     }
 }

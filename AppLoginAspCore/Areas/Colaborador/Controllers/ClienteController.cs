@@ -17,7 +17,7 @@ namespace AppLoginAspCore.Areas.Colaborador.Controllers
             _clienteRepository = clienteRepository;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(int? pagina, string pesquisa)
         {
             return View(_clienteRepository.ObterTodosClientes());
         }

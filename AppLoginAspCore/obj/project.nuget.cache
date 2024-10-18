@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Hg/e9pI8kB/6cnJm/NvNFX1v+OBLB1cw+RVNiJN/1mDF9C39CxLYmfvh/YYGRk3zr+QBrAhtsbFDxEfvnOY7wg==",
+  "dgSpecHash": "5Z+tWl9T6xne59I4C+mpTMlVlq6ZfoUV9zkFN4LLk3dmLk1cynhJ/RCsvmSfjYyPp9q1XI+pGBd6X9Xg6UXAvQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\Nilson\\source\\repos\\ASPNETCORE\\AppLoginAspCore\\-AppLoginAspCore\\AppLoginAspCore\\AppLoginAspCore.csproj",
   "expectedPackageFiles": [
@@ -142,6 +142,8 @@
     "C:\\Users\\Nilson\\.nuget\\packages\\system.threading.tasks.dataflow\\7.0.0\\system.threading.tasks.dataflow.7.0.0.nupkg.sha512",
     "C:\\Users\\Nilson\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512",
     "C:\\Users\\Nilson\\.nuget\\packages\\system.windows.extensions\\7.0.0\\system.windows.extensions.7.0.0.nupkg.sha512",
+    "C:\\Users\\Nilson\\.nuget\\packages\\x.pagedlist\\10.2.1\\x.pagedlist.10.2.1.nupkg.sha512",
+    "C:\\Users\\Nilson\\.nuget\\packages\\x.pagedlist.mvc.core\\10.2.1\\x.pagedlist.mvc.core.10.2.1.nupkg.sha512",
     "C:\\Users\\Nilson\\.nuget\\packages\\zstdsharp.port\\0.7.1\\zstdsharp.port.0.7.1.nupkg.sha512"
   ],
   "logs": []

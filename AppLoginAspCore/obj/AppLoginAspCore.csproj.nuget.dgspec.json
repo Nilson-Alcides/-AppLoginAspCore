@@ -65,6 +65,10 @@
             "StackExchange.Redis": {
               "target": "Package",
               "version": "[2.7.33, )"
+            },
+            "X.PagedList.Mvc.Core": {
+              "target": "Package",
+              "version": "[10.2.1, )"
             }
           },
           "imports": [

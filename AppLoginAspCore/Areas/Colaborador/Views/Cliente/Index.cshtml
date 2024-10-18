@@ -2,6 +2,7 @@
 
 @{
     ViewData["Title"] = "Clentes";
+    var pesquisa = Context.Request.Query["pesquisa"];
 }
 
 <h1>Clentes</h1>
@@ -12,6 +13,16 @@
     </a>
 </p> *@
 
+<form method="get">
+    <div class="form-group">
+        <label for="pesquisa"></label>
+        <input type="text" name="pesquisa" id="pesquisa" value="@pesquisa" class="form-control" placeholder="Digite o nome ou e-mail do cliente">
+    </div>
+    <button type="submit" class="btn btn-primary">OK</button>
+</form>
+<br />
+<br />
+
 <div class="table-responsive">
     <table class="table table-bordered">
         <thead>
@@ -19,6 +30,7 @@
                 <th scope="col">@Html.DisplayNameFor(model => model.First().Id)</th>
                 <th scope="col">@Html.DisplayNameFor(model => model.First().Nome)</th>
                 <th scope="col">@Html.DisplayNameFor(model => model.First().CPF)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model.First().Nascimento)</th>
                 <th scope="col">@Html.DisplayNameFor(model => model.First().Telefone)</th>
                 <th scope="col">@Html.DisplayNameFor(model => model.First().Email)</th>
                 <th scope="col">@Html.DisplayNameFor(model => model.First().Senha)</th>
@@ -34,6 +46,7 @@
                     <th scope="row">@cliente.Id</th>
                     <td>@cliente.Nome</td>
                     <td>@cliente.CPF</td>
+                    <td>@cliente.Nascimento. </td>
                     <td>@cliente.Telefone</td>
                     <td>@cliente.Email</td>
                     <td>@cliente.Senha</td>

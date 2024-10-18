@@ -1,11 +1,4 @@
-﻿
-using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace AppLoginAspCore.Models
 {
@@ -43,7 +36,7 @@ namespace AppLoginAspCore.Models
 
         [Display(Name = "Senha")]
         [DataType(DataType.Password)]
-        [Required(ErrorMessage = "O senha é obrigatorio")]
+        [Required(ErrorMessage = "A senha é obrigatorio")]
         [StringLength(10, MinimumLength = 6, ErrorMessage = "A senha deve ter entre 6 e 10 caracteres")]
         public string Senha { get; set; }
         

@@ -33,6 +33,7 @@ C:\Users\Nilson\source\repos\ASPNETCORE\AppLoginAspCore\-AppLoginAspCore\AppLogi
 C:\Users\Nilson\source\repos\ASPNETCORE\AppLoginAspCore\-AppLoginAspCore\AppLoginAspCore\obj\Debug\net8.0\AppLoginAspCore.AssemblyInfoInputs.cache
 C:\Users\Nilson\source\repos\ASPNETCORE\AppLoginAspCore\-AppLoginAspCore\AppLoginAspCore\obj\Debug\net8.0\AppLoginAspCore.AssemblyInfo.cs
 C:\Users\Nilson\source\repos\ASPNETCORE\AppLoginAspCore\-AppLoginAspCore\AppLoginAspCore\obj\Debug\net8.0\AppLoginAspCore.csproj.CoreCompileInputs.cache
+C:\Users\Nilson\source\repos\ASPNETCORE\AppLoginAspCore\-AppLoginAspCore\AppLoginAspCore\obj\Debug\net8.0\AppLoginAspCore.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\Nilson\source\repos\ASPNETCORE\AppLoginAspCore\-AppLoginAspCore\AppLoginAspCore\obj\Debug\net8.0\AppLoginAspCore.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\Nilson\source\repos\ASPNETCORE\AppLoginAspCore\-AppLoginAspCore\AppLoginAspCore\obj\Debug\net8.0\AppLoginAspCore.RazorAssemblyInfo.cache
 C:\Users\Nilson\source\repos\ASPNETCORE\AppLoginAspCore\-AppLoginAspCore\AppLoginAspCore\obj\Debug\net8.0\AppLoginAspCore.RazorAssemblyInfo.cs
@@ -103,6 +104,8 @@ C:\Users\Nilson\source\repos\ASPNETCORE\AppLoginAspCore\-AppLoginAspCore\AppLogi
 C:\Users\Nilson\source\repos\ASPNETCORE\AppLoginAspCore\-AppLoginAspCore\AppLoginAspCore\bin\Debug\net8.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\Nilson\source\repos\ASPNETCORE\AppLoginAspCore\-AppLoginAspCore\AppLoginAspCore\bin\Debug\net8.0\System.Security.Permissions.dll
 C:\Users\Nilson\source\repos\ASPNETCORE\AppLoginAspCore\-AppLoginAspCore\AppLoginAspCore\bin\Debug\net8.0\System.Windows.Extensions.dll
+C:\Users\Nilson\source\repos\ASPNETCORE\AppLoginAspCore\-AppLoginAspCore\AppLoginAspCore\bin\Debug\net8.0\X.PagedList.dll
+C:\Users\Nilson\source\repos\ASPNETCORE\AppLoginAspCore\-AppLoginAspCore\AppLoginAspCore\bin\Debug\net8.0\X.PagedList.Mvc.Core.dll
 C:\Users\Nilson\source\repos\ASPNETCORE\AppLoginAspCore\-AppLoginAspCore\AppLoginAspCore\bin\Debug\net8.0\ZstdSharp.dll
 C:\Users\Nilson\source\repos\ASPNETCORE\AppLoginAspCore\-AppLoginAspCore\AppLoginAspCore\bin\Debug\net8.0\af\Humanizer.resources.dll
 C:\Users\Nilson\source\repos\ASPNETCORE\AppLoginAspCore\-AppLoginAspCore\AppLoginAspCore\bin\Debug\net8.0\ar\Humanizer.resources.dll

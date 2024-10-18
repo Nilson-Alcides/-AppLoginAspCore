@@ -3,19 +3,23 @@ using AppLoginAspCore.Models.Contants;
 using AppLoginAspCore.Repositories.Contract;
 using MySql.Data.MySqlClient;
 using System.Data;
+using X.PagedList;
+using static Org.BouncyCastle.Math.EC.ECCurve;
 
 namespace AppLoginAspCore.Repository
 {
     public class ClienteRepository : IClienteRepository
     {
-        // Propriedade Privada para injetar a conexão com o banco de dados ;
+        // Propriedade Privada para injetar a conexão com o banco de dados;
         private readonly string _conexaoMySQL;
+        IConfiguration _config;
 
         //Metodo construtor da classe ClienteRepository    
         public ClienteRepository(IConfiguration conf)
         {
             // Injeção de dependencia do banco de dados
             _conexaoMySQL = conf.GetConnectionString("ConexaoMySQL");
+            _config = conf;
         }
 
         //Logim Cliente
@@ -117,15 +121,12 @@ namespace AppLoginAspCore.Repository
             }
             catch (MySqlException ex)
             {
-
                 throw new Exception("Erro no banco em cadastro cliente" + ex.Message);
             }
             catch (Exception ex)
             {
-
                 throw new Exception("Erro na aplicação em cadastro cliente" + ex.Message);
             }
-
         }
         public void Atualizar(Cliente cliente)
         {
@@ -260,6 +261,53 @@ namespace AppLoginAspCore.Repository
 
                 }
                 return cliente;
+            }
+        }
+
+        public IPagedList<Cliente> ObterTodosClientes(int? pagina, string pesquisa)
+        {
+            int RegistroPorPagina = _config.GetValue<int>("RegistroPorPagina");
+
+            int NumeroPagina = pagina ?? 1;
+
+            var clientePesquisadoEmail = BuscaEmailCliente(pesquisa);
+
+            //if (!string.IsNullOrEmpty(pesquisa))
+            //{
+            //    clientePesquisadoEmail = clientePesquisadoEmail.Where(a => a.Email == pesquisa);
+            //}           
+
+            List<Cliente> cliList = new List<Cliente>();
+            using (var conexao = new MySqlConnection(_conexaoMySQL))
+            {
+                conexao.Open();
+                MySqlCommand cmd = new MySqlCommand("SELECT * FROM CLIENTE", conexao);
+
+                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+
+                DataTable dt = new DataTable();
+
+                da.Fill(dt);
+
+                conexao.Close();
+
+                foreach (DataRow dr in dt.Rows)
+                {
+                    cliList.Add(
+                        new Cliente
+                        {
+                            Id = Convert.ToInt32(dr["Id"]),
+                            Nome = (string)(dr["Nome"]),
+                            Nascimento = Convert.ToDateTime(dr["Nascimento"]),
+                            Sexo = Convert.ToString(dr["Sexo"]),
+                            CPF = Convert.ToString(dr["CPF"]),
+                            Telefone = Convert.ToString(dr["Telefone"]),
+                            Email = Convert.ToString(dr["Email"]),
+                            Senha = Convert.ToString(dr["Senha"]),
+                            Situacao = Convert.ToString(dr["Situacao"])
+                        });
+                };
+                return cliList.ToPagedList<Cliente>(NumeroPagina, RegistroPorPagina);
             }
         }
     }
