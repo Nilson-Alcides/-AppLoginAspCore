@@ -5,7 +5,7 @@
     var pesquisa = Context.Request.Query["pesquisa"];
 }
 
-<h1>Clentes</h1>
+<h1>Clientes</h1>
 @* <p class="btn btn-outline-primary" role="button">
     <a asp-action="Cadastrar">
         <span class="fas fa-user-plus" title="Cadastro" aria-hidden="true"></span>
@@ -22,7 +22,7 @@
 </form>
 <br />
 <br />
-
+<a class="btn btn-primary" asp-action="Cadastrar">Cadastrar</a>
 <div class="table-responsive">
     <table class="table table-bordered">
         <thead>
@@ -68,7 +68,6 @@
                                          new { onclick = "return confirm('Deseja realmente ativar?');" })
                             </button>
                         }
-                       
                     </td>
                 </tr>
             }

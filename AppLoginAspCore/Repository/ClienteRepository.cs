@@ -63,7 +63,8 @@ namespace AppLoginAspCore.Repository
             using (var conexao = new MySqlConnection(_conexaoMySQL))
             {
                 conexao.Open();
-                MySqlCommand cmd = new MySqlCommand("SELECT * FROM CLIENTE", conexao);
+                //MySqlCommand cmd = new MySqlCommand("SELECT * FROM CLIENTE", conexao);
+                MySqlCommand cmd = new MySqlCommand("CALL  proc_SelecionarCliente();", conexao);
 
                 MySqlDataAdapter da = new MySqlDataAdapter(cmd);
 
@@ -104,6 +105,7 @@ namespace AppLoginAspCore.Repository
                     MySqlCommand cmd = new MySqlCommand("insert into Cliente(Nome, Nascimento, Sexo,  CPF, Telefone, Email, Senha, Situacao) " +
                     " values (@Nome, @Nascimento, @Sexo, @CPF, @Telefone, @Email, @Senha, @Situacao)", conexao); // @: PARAMETRO
 
+                   // MySqlCommand cmd = new MySqlCommand("CALL (@Nome, @Nascimento, @Sexo, @CPF, @Telefone, @Email, @Senha, @Situacao) " , conexao); // @: PARAMETRO
 
                     cmd.Parameters.Add("@Nome", MySqlDbType.VarChar).Value = cliente.Nome;
                     cmd.Parameters.Add("@Nascimento", MySqlDbType.DateTime).Value = cliente.Nascimento.ToString("yyyy/MM/dd");

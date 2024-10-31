@@ -33,7 +33,6 @@ namespace AppLoginAspCore.Areas.Colaborador.Controllers
         {
             Models.Colaborador colaboradorDB = _repositoryColaborador.Login(colaborador.Email, colaborador.Senha);
 
-
             if (colaboradorDB.Email != null && colaboradorDB.Senha != null )
             {
                 _loginColaborador.Login(colaboradorDB);

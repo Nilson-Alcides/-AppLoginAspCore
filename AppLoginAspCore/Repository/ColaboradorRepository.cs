@@ -155,6 +155,10 @@ namespace AppLoginAspCore.Repository
                 return colabList;
             }
         }
+        /// <summary>
+        /// add comentario
+        /// </summary>
+        /// <param name="Id"></param>
         public void Excluir(int Id)
         {
             using (var conexao = new MySqlConnection(_conexaoMySQL))

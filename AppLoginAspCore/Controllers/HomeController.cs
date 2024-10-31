@@ -66,9 +66,7 @@ namespace AppLoginAspCore.Controllers
         {
             
             return View();
-        }
-
-        
+        }               
        
         [HttpPost]
         public IActionResult Cadastrar([FromForm] Cliente cliente)

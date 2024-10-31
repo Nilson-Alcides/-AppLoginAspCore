@@ -271,3 +271,6 @@ C:\Users\Nilson\source\repos\ASPNETCORE\AppLoginAspCore\-AppLoginAspCore\AppLogi
 C:\Users\Nilson\source\repos\ASPNETCORE\AppLoginAspCore\-AppLoginAspCore\AppLoginAspCore\obj\Debug\net8.0\AppLoginAspCore.pdb
 C:\Users\Nilson\source\repos\ASPNETCORE\AppLoginAspCore\-AppLoginAspCore\AppLoginAspCore\obj\Debug\net8.0\AppLoginAspCore.genruntimeconfig.cache
 C:\Users\Nilson\source\repos\ASPNETCORE\AppLoginAspCore\-AppLoginAspCore\AppLoginAspCore\obj\Debug\net8.0\ref\AppLoginAspCore.dll
+C:\Users\Nilson\source\repos\ASPNETCORE\AppLoginAspCore\-AppLoginAspCore\AppLoginAspCore\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\Nilson\source\repos\ASPNETCORE\AppLoginAspCore\-AppLoginAspCore\AppLoginAspCore\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\Nilson\source\repos\ASPNETCORE\AppLoginAspCore\-AppLoginAspCore\AppLoginAspCore\bin\Debug\net8.0\System.Formats.Asn1.dll
